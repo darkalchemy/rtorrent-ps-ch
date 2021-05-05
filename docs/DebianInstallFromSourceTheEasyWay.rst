@@ -19,11 +19,14 @@ First, you need to install a few **required** packages — **and no, this is not
 
 .. code-block:: shell
 
+   :installing python2
    apt-get update
    apt-get install sudo tmux coreutils binutils build-essential subversion git time \
        chrpath pkg-config libssl-dev libncurses5-dev libncursesw5-dev locales libcppunit-dev \
        zlib1g-dev autoconf automake libtool libxml2-dev libxslt1-dev curl ruby ruby-dev mc \
-       python python-dev python-virtualenv python-pip python-setuptools python-pkg-resources
+       python python-dev python-setuptools python-pkg-resources virtualenv
+   curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
+   sudo python2 get-pip.py
    gem install fpm
 
 
