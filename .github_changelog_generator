@@ -3,6 +3,6 @@ compare-link=false
 #pr-wo-labels=false
 exclude-labels=no-changelog
 unreleased=true
-future-release=1.8.3-0.9.7
+future-release=1.8.3-0.9.8
 exclude-tags=final-0.8.x-support
 since-tag=0.9.4-20150310-46ed5cb

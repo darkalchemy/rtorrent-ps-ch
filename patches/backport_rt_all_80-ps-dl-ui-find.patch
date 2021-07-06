@@ -46,6 +46,6 @@
      INPUT_COMMAND,
      INPUT_FILTER,
 +    INPUT_FIND,
-     INPUT_EOI              // EndOfInput enum (not a valid input): it always has to be the last entry
+     INPUT_EOI
    } Input;
  

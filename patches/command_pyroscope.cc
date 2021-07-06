@@ -60,8 +60,8 @@ int log_messages_fd = -1;
 };
 
 
-#if RT_HEX_VERSION <= 0x000908
-// will be merged into 0.9.8+ mainline?
+#if RT_HEX_VERSION <= 0x000909
+// will be merged into 0.9.9+ mainline?
 
 namespace torrent {
 
@@ -264,6 +264,8 @@ std::string get_parent_dir(core::Download* item) {
 }
 
 
+#if RT_HEX_VERSION <= 0x000907
+// this is merged into 0.9.8 mainline!
 /*  @DOC
     `compare = <order>, <sort_key>=[, ...]`
 
@@ -334,6 +336,7 @@ torrent::Object apply_compare(rpc::target_type target, const torrent::Object::li
     // if all else is equal, ensure stable sort order based on memory location
     return (int64_t) (target.second < target.third);
 }
+#endif
 
 
 static std::map<int, std::string> bound_commands[ui::DownloadList::DISPLAY_MAX_SIZE];
@@ -518,6 +521,8 @@ torrent::Object cmd_do(rpc::target_type target, const torrent::Object& args) {
 }
 
 
+#if RT_HEX_VERSION <= 0x000907
+// this is merged into 0.9.8 mainline!
 torrent::Object retrieve_d_custom_if_z(core::Download* download, const torrent::Object::list_type& args) {
     torrent::Object::list_const_iterator itr = args.begin();
     if (itr == args.end())
@@ -535,6 +540,7 @@ torrent::Object retrieve_d_custom_if_z(core::Download* download, const torrent::
         return itr->as_string();
     }
 }
+#endif
 
 
 torrent::Object cmd_d_custom_set_if_z(core::Download* download, const torrent::Object::list_type& args) {
@@ -576,6 +582,8 @@ torrent::Object cmd_d_custom_erase(core::Download* download, const torrent::Obje
 }
 
 
+#if RT_HEX_VERSION <= 0x000907
+// this is merged into 0.9.8 mainline!
 torrent::Object retrieve_d_custom_map(core::Download* download, bool keys_only, const torrent::Object::list_type& args) {
     if (args.begin() != args.end())
         throw torrent::bencode_error("d.custom.keys/items takes no arguments.");
@@ -590,6 +598,7 @@ torrent::Object retrieve_d_custom_map(core::Download* download, bool keys_only, 
 
     return result;
 }
+#endif
 
 
 torrent::Object cmd_d_custom_toggle(core::Download* download, const std::string& key) {
@@ -630,6 +639,8 @@ torrent::Object retrieve_d_custom_as_value(core::Download* download, const std::
 }
 
 
+#if RT_HEX_VERSION <= 0x000907
+// this is merged into 0.9.8 mainline!
 torrent::Object
 d_multicall_filtered(const torrent::Object::list_type& args) {
   if (args.size() < 2)
@@ -665,6 +676,7 @@ d_multicall_filtered(const torrent::Object::list_type& args) {
 
   return resultRaw;
 }
+#endif
 
 
 /*  throttle.names=
@@ -1180,6 +1192,8 @@ torrent::Object cmd_system_client_version_as_value() {
 }
 
 
+#if RT_HEX_VERSION <= 0x000907
+// this is merged into 0.9.8 mainline!
 torrent::Object cmd_value(rpc::target_type target, const torrent::Object::list_type& args) {
     if (args.size() < 1) {
         throw torrent::input_error("'value' takes at least a number argument!");
@@ -1205,6 +1219,7 @@ torrent::Object cmd_value(rpc::target_type target, const torrent::Object::list_t
 
     return val;
 }
+#endif
 
 
 torrent::Object cmd_d_tracker_domain(core::Download* download) {
@@ -1258,10 +1273,14 @@ void initialize_command_pyroscope() {
     CMD2_ANY("ui.current_view", _cxxstd_::bind(&cmd_ui_current_view));
 #endif
 
-#if RT_HEX_VERSION <= 0x000908
-    // will be merged into 0.9.8+ mainline?
-    CMD2_ANY_LIST("system.random", &apply_random);
+#if RT_HEX_VERSION <= 0x000907
+    // this is merged into 0.9.8 mainline!
     CMD2_ANY_LIST("d.multicall.filtered", _cxxstd_::bind(&d_multicall_filtered, _cxxstd_::placeholders::_2));
+#endif
+
+#if RT_HEX_VERSION <= 0x000909
+    // will be merged into 0.9.9+ mainline?
+    CMD2_ANY_LIST("system.random", &apply_random);
 #endif
 
     // string.* group
@@ -1302,23 +1321,32 @@ void initialize_command_pyroscope() {
     CMD2_ANY("system.client_version.as_value", _cxxstd_::bind(&cmd_system_client_version_as_value));
 
     // d.custom.* extensions
+#if RT_HEX_VERSION <= 0x000907
+    // this is merged into 0.9.8 mainline!
     CMD2_DL_LIST("d.custom.if_z", _cxxstd_::bind(&retrieve_d_custom_if_z,
                                                  _cxxstd_::placeholders::_1, _cxxstd_::placeholders::_2));
+#endif
     CMD2_DL_LIST("d.custom.set_if_z", _cxxstd_::bind(&cmd_d_custom_set_if_z,
                                                      _cxxstd_::placeholders::_1, _cxxstd_::placeholders::_2));
     CMD2_DL_LIST("d.custom.erase", _cxxstd_::bind(&cmd_d_custom_erase,
                                                   _cxxstd_::placeholders::_1, _cxxstd_::placeholders::_2));
+#if RT_HEX_VERSION <= 0x000907
+    // these are merged into 0.9.8 mainline!
     CMD2_DL_LIST("d.custom.keys", _cxxstd_::bind(&retrieve_d_custom_map,
                                                  _cxxstd_::placeholders::_1, true, _cxxstd_::placeholders::_2));
     CMD2_DL_LIST("d.custom.items", _cxxstd_::bind(&retrieve_d_custom_map,
                                                  _cxxstd_::placeholders::_1, false, _cxxstd_::placeholders::_2));
+#endif
     CMD2_DL_STRING("d.custom.toggle",  _cxxstd_::bind(&cmd_d_custom_toggle,
                                                       _cxxstd_::placeholders::_1, _cxxstd_::placeholders::_2));
     CMD2_DL_STRING("d.custom.as_value",  _cxxstd_::bind(&retrieve_d_custom_as_value,
                                                         _cxxstd_::placeholders::_1, _cxxstd_::placeholders::_2));
     // Misc commands
+#if RT_HEX_VERSION <= 0x000907
+    // these are merged into 0.9.8 mainline!
     CMD2_ANY_LIST("value", &cmd_value);
     CMD2_ANY_LIST("compare", &apply_compare);
+#endif
     CMD2_ANY("ui.bind_key", &apply_ui_bind_key);
     CMD2_VAR_VALUE("ui.bind_key.verbose", 1);
     CMD2_ANY("throttle.names", _cxxstd_::bind(&cmd_throttle_names));

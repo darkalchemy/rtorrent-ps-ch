@@ -202,6 +202,7 @@ context default
     keyword whole d.timestamp.finished yellow
     keyword whole d.timestamp.started yellow
     keyword whole d.tracker_alias yellow
+    keyword whole d.tracker_announce.force yellow
     keyword whole d.tracker_announce yellow
     keyword whole d.tracker_domain yellow
     keyword whole d.tracker_focus yellow
@@ -346,6 +347,9 @@ context default
     keyword whole load.start yellow
     keyword whole load.verbose yellow
     keyword whole log.add_output yellow
+    keyword whole log.append_file yellow
+    keyword whole log.append_gz_file yellow
+    keyword whole log.close yellow
     keyword whole log.execute yellow
     keyword whole log.messages yellow
     keyword whole log.open_file_pid yellow
@@ -774,9 +778,9 @@ context default
     keyword whole view.sort_current yellow
     keyword whole view.sort_new yellow
     keyword whole view.sort yellow
-    keyword whole view.temp_filter.excluded yellow
-    keyword whole view.temp_filter.log yellow
-    keyword whole view.temp_filter yellow
+    keyword whole view.filter.temp.excluded yellow
+    keyword whole view.filter.temp.log yellow
+    keyword whole view.filter.temp yellow
 
 # Other commands defined in config
     keyword whole cfg.dir.meta_downl yellow
@@ -1141,6 +1145,7 @@ context " " green
     keyword whole d.timestamp.finished brightgreen
     keyword whole d.timestamp.started brightgreen
     keyword whole d.tracker_alias brightgreen
+    keyword whole d.tracker_announce.force brightgreen
     keyword whole d.tracker_announce brightgreen
     keyword whole d.tracker_domain brightgreen
     keyword whole d.tracker_focus brightgreen
@@ -1285,6 +1290,9 @@ context " " green
     keyword whole load.start brightgreen
     keyword whole load.verbose brightgreen
     keyword whole log.add_output brightgreen
+    keyword whole log.append_file brightgreen
+    keyword whole log.append_gz_file brightgreen
+    keyword whole log.close brightgreen
     keyword whole log.execute brightgreen
     keyword whole log.messages brightgreen
     keyword whole log.open_file_pid brightgreen
@@ -1713,9 +1721,9 @@ context " " green
     keyword whole view.sort_current brightgreen
     keyword whole view.sort_new brightgreen
     keyword whole view.sort brightgreen
-    keyword whole view.temp_filter.excluded brightgreen
-    keyword whole view.temp_filter.log brightgreen
-    keyword whole view.temp_filter brightgreen
+    keyword whole view.filter.temp.excluded brightgreen
+    keyword whole view.filter.temp.log brightgreen
+    keyword whole view.filter.temp brightgreen
 
 # Other commands defined in config
     keyword whole cfg.dir.meta_downl brightgreen

@@ -216,7 +216,7 @@ Event (multi commands) that will be triggered when a download is being partially
     method.set_key = event.download.partially_restarted, ~log, ((print, "Partially restarted : ", ((d.name))))
 
 
-event.system.{startup_done|shutdown}
+event.system.{startup_done|shutdown} *(merged into v0.9.8)*
 ^^^^^^^^^^
 
 Events (multi commands) that will be triggered when startup is done (e.g. after loading session files) or shutdown is started. Example usage:
@@ -226,7 +226,7 @@ Events (multi commands) that will be triggered when startup is done (e.g. after 
     method.set_key = event.system.startup_done, ~log, ((print, "Startup time: ", ((system.startup_time)) ))
 
 
-method.insert.{bool|string|list}
+method.insert.{bool|string|list} *(merged into v0.9.8)*
 ^^^^^^^^^^
 
 Similarly to ``method.insert.value`` method, they create public, mutable properties. Example usage:
@@ -332,7 +332,7 @@ It only supports 3 commands as the first parameter: ``d.stop``, ``d.close``, ``d
     directory.watch.removed = d.erase, (cat,(cfg.dir.meta_compl),various/), (cat,(cfg.dir.meta_compl),unsafe/)
 
 
-match=«cmd1»,«cmd2»
+match=«cmd1»,«cmd2» *(merged into v0.9.8)*
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Regexp based comparison operator can work with strings or values (integers), returned from the given commands, its return value is boolean. 
@@ -342,13 +342,13 @@ Regexp based comparison operator can work with strings or values (integers), ret
     method.insert = match_name, simple, "match={d.name=,.*linux.*iso}"
 
 
-try=«cmd»
+try=«cmd» *(merged into v0.9.8)*
 ^^^^^^^^^^
 
 Catches input_errors of ``cmd`` and logs them on rpc_events. 
 
 
-view.temp_filter=«viewname»[,«cmd»]
+view.filter.temp=«viewname»[,«cmd»] *(merged into v0.9.8)*
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Apply temp filter to a view. If ``«cmd»`` isn't supplied it removes the previously applied temp filter.
@@ -358,7 +358,7 @@ Apply temp filter to a view. If ``«cmd»`` isn't supplied it removes the previo
     view.temp_filter=main, "match={d.name=,.*linux.*iso}"
 
 
-view.temp_filter.excluded[.set]="[«viewname1»,«viewname2»,…]"
+view.filter.temp.excluded[.set]="[«viewname1»,«viewname2»,…]" *(merged into v0.9.8)*
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Get / set a list of views that can be excluded from subfiltering. Its default value is:
@@ -368,7 +368,7 @@ Get / set a list of views that can be excluded from subfiltering. Its default va
     view.temp_filter.excluded.set="default,started,stopped"
 
 
-view.temp_filter.log[.set]=0|1
+view.filter.temp.log[.set]=0|1 *(merged into v0.9.8)*
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Determines whether subfiltering is logged onto the messages view (key `l`). Disabled by default, to enable it:
@@ -378,7 +378,7 @@ Determines whether subfiltering is logged onto the messages view (key `l`). Disa
     view.temp_filter.log.set=1
 
 
-ui.input.history.size[.set]=«value»
+ui.input.history.size[.set]=«value» *(merged into v0.9.8)*
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Get / set the size of `input history <https://github.com/chros73/rtorrent-ps-ch/issues/83>`_. Default value is:
@@ -388,7 +388,7 @@ Get / set the size of `input history <https://github.com/chros73/rtorrent-ps-ch/
     ui.input.history.size.set=99
 
 
-ui.input.history.clear=
+ui.input.history.clear= *(merged into v0.9.8)*
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Clear all the `input history <https://github.com/chros73/rtorrent-ps-ch/issues/83>`_.
@@ -428,7 +428,7 @@ Configuration example:
     ui.status.throttle.down.set=slowdown
 
 
-ui.throttle.global.step.{small|medium|large}[.set]=«value»
+ui.throttle.global.step.{small|medium|large}[.set]=«value» *(merged into v0.9.8)*
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Set `global throttle steps <https://github.com/rakshasa/rtorrent/wiki/User-Guide#throttling>`_. Their default value is:

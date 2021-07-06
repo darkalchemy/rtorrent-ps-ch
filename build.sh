@@ -12,11 +12,11 @@ rt_ps_ch_minor_git='3'
 # Set latest major libTorrent/rTorrent release versions
 lt_major='0.13'
 rt_major='0.9'
-rt_minor='7'
+rt_minor='8'
 
 # Specify git branch/commit for libTorrent/rTorrent to compile from: [master|15e64bd]
-git_lt='ef1e7c0'                # 2018-06-07 master v0.13.7
-git_rt='327164f'                # 2018-06-07 master v0.9.7
+git_lt='756f700'                # 2018-07-19 master v0.13.8
+git_rt='6154d16'                # 2018-07-19 master v0.9.8
 
 # Dependency versions
 cares_version='1.14.0'          # 2018.02.16
@@ -221,10 +221,14 @@ src_pkg_hashes+=('libtorrent-0.13.6.tar.gz:66f18044432a62c006c75f6d0bb4d7dc')
 src_pkg_hashes+=('libtorrent-c167c5a.tar.gz:58448dbefe92616f6ad19ac41315feed')
 src_pkg_hashes+=('libtorrent-0.13.7.tar.gz:fe34521cd440910b7ad4e1720a1ff5e0')
 src_pkg_hashes+=('libtorrent-ef1e7c0.tar.gz:01720f250ca017a07e3c4d8378a992d5')
+src_pkg_hashes+=('libtorrent-0.13.8.tar.gz:ca02e624fde0d704780085987010f99a')
+src_pkg_hashes+=('libtorrent-756f700.tar.gz:945fbaeeff6e7bcefe1fdc6e2168303c')
 src_pkg_hashes+=('rtorrent-0.9.6.tar.gz:5e7550f74e382a6245412c615f45444d')
 src_pkg_hashes+=('rtorrent-226e670.tar.gz:a0138f4739d4313d5dfad0432cabef5c')
 src_pkg_hashes+=('rtorrent-0.9.7.tar.gz:284b833794ce3ab4ddc62cf1a20edeb1')
 src_pkg_hashes+=('rtorrent-327164f.tar.gz:84944d3a23eeed5f4346b76d174e74e7')
+src_pkg_hashes+=('rtorrent-0.9.8.tar.gz:cbdf499faa0882e20d60fcb85a8f51d3')
+src_pkg_hashes+=('rtorrent-6154d16.tar.gz:dce42fbf4daa0a496d1ad188465f6f67')
 
 
 # Directory definitions

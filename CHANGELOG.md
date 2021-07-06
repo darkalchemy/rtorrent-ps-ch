@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.8.3-0.9.8](https://github.com/chros73/rtorrent-ps-ch/tree/1.8.3-0.9.8) (2019-07-27)
+**Implemented enhancements:**
+
+- Upgrade to official rtorrent/libtorrent 0.9.8/0.13.8 releases [\#164](https://github.com/chros73/rtorrent-ps-ch/issues/164)
+
 ## [1.8.3-0.9.7](https://github.com/chros73/rtorrent-ps-ch/tree/1.8.3-0.9.7) (2018-10-05)
 **Fixed bugs:**
 

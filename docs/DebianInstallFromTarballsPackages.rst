@@ -56,7 +56,7 @@ and create symlinks to it in ``/usr/local/bin/``, ``/usr/local/lib/`` and ``/opt
 
 .. code-block:: shell
 
-   version="1.8.3-0.9.7-ubuntu-trusty_amd64"
+   version="1.8.3-0.9.8-ubuntu-trusty_amd64"
    curl -Lko "/tmp/rtorrent-ps-ch_$version.deb" "https://bintray.com/chros73/rtorrent-ps-ch/download_file?file_path=rtorrent-ps-ch_$version.deb"
    dpkg -i "/tmp/rtorrent-ps-ch_$version.deb"
 
@@ -70,7 +70,7 @@ Tarballs can be extracted anywhere on the filesystem, e.g. into ``~/lib`` direct
 
 .. code-block:: shell
 
-   version="1.8.3-0.9.7-ubuntu-trusty_amd64"
+   version="1.8.3-0.9.8-ubuntu-trusty_amd64"
    curl -Lko "/tmp/rtorrent-ps-ch_$version.tar.gz" "https://bintray.com/chros73/rtorrent-ps-ch/download_file?file_path=rtorrent-ps-ch_$version.tar.gz"
    mkdir -p ~/lib
    tar -xzvf "/tmp/rtorrent-ps-ch_$version.tar.gz" -C ~/lib/

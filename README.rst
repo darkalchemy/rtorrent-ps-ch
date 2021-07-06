@@ -33,18 +33,21 @@ It adds couple of new `keyboard shortcuts <docs/Manual.rst#extra-keyboard-shortc
 Important enhancements, fixes
 -----------------------------
 
-Over latest ``rtorrent v0.9.7/0.13.7``:
+Over latest ``rtorrent v0.9.8/0.13.8``:
+
+-  `inotify fix <https://github.com/chros73/rtorrent-ps/issues/87>`_
+-  `throttle status bar mod <https://github.com/chros73/rtorrent-ps/issues/74>`_
+-  `partially done downloads fix <https://github.com/chros73/rtorrent-ps/issues/69#issuecomment-284245459>`_
+-  `choke groups fix <https://github.com/chros73/rtorrent-ps/issues/69>`_
+-  `partial system.file.allocate.set=1 fix <https://github.com/chros73/rtorrent-ps/issues/68>`_
+
+Merged into ``rtorrent v0.9.8/0.13.8``:
 
 -  `list method type fix <https://github.com/chros73/rtorrent-ps-ch/issues/154>`_
 -  `min_peers* settings fix <https://github.com/chros73/rtorrent-ps/issues/126>`_
--  `inotify fix <https://github.com/chros73/rtorrent-ps/issues/87>`_
 -  `input history <https://github.com/chros73/rtorrent-ps/issues/83>`_
--  `throttle status bar mod <https://github.com/chros73/rtorrent-ps/issues/74>`_
 -  `basic arithmetic operators <https://github.com/chros73/rtorrent-ps/issues/71>`_
--  `partially done downloads fix <https://github.com/chros73/rtorrent-ps/issues/69#issuecomment-284245459>`_
--  `choke groups fix <https://github.com/chros73/rtorrent-ps/issues/69>`_
 -  `temp filter <https://github.com/chros73/rtorrent-ps/issues/63>`_
--  `partial system.file.allocate.set=1 fix <https://github.com/chros73/rtorrent-ps/issues/68>`_
 
 Merged into ``rtorrent v0.9.7/0.13.7``:
 
@@ -69,7 +72,7 @@ It also adds the following extra `attributes, commands <docs/Manual.rst#extra-co
 - ``d.custom=last_active``, ``d.custom=tm_completed`` `custom fields <https://github.com/chros73/rtorrent-ps/issues/120>`_
 - ``d.is_enough_diskspace``, ``d.allocatable_size_bytes``, ``f.is_fallocatable``, ``f.is_fallocatable_file``, ``f.set_fallocate``, ``f.unset_fallocate`` (`system.file.allocate fix  <https://github.com/chros73/rtorrent-ps/issues/68>`_)
 - ``convert.group``, ``d.is_done``, ``d.selected_size_bytes`` (`partially done downloads and choke groups fix  <https://github.com/chros73/rtorrent-ps/issues/69>`_)
-- ``view.temp_filter``, ``match``, ``view.temp_filter.log``, ``view.temp_filter.excluded`` (`temp filter  <https://github.com/chros73/rtorrent-ps/issues/63>`_)
+- ``view.filter.temp``, ``match``, ``view.filter.temp.log``, ``view.filter.temp.excluded`` (`temp filter  <https://github.com/chros73/rtorrent-ps/issues/63>`_)
 -  `math.* <https://github.com/chros73/rtorrent-ps/issues/71>`_ command group
 -  ``ui.throttle.global.step.small.set``, ``ui.throttle.global.step.medium.set``, ``ui.throttle.global.step.large.set``  (`global throttle steps <https://github.com/chros73/rtorrent-ps/issues/84>`_)
 -  ``ui.input.history.size``, ``ui.input.history.size.set``, ``ui.input.history.clear`` (`input history <https://github.com/chros73/rtorrent-ps/issues/83>`_)
@@ -89,13 +92,14 @@ Notes
 Notes about ``git`` build script parameter:
 
 - if commits point to the release version of ``rtorrent``/``libtorrent`` in build script then there shouldn't be a difference between release and git builds
-- client versions (``rtorrent``/``libtorrent``) are still untouched, that means client still report the latest release version (e.g. ``0.9.7``) to trackers, only title bar and directory names are changed to display the increased version number (e.g. ``0.9.8``).
+- client versions (``rtorrent``/``libtorrent``) are still untouched, that means client still report the latest release version (e.g. ``0.9.8``) to trackers, only title bar and directory names are changed to display the increased version number (e.g. ``0.9.9``).
 
 
 Compiling instructions
 -----------------------
 
 See `Debian Install From Source - The Easy Way <docs/DebianInstallFromSourceTheEasyWay.rst>`_ to get ``rTorrent-PS-CH`` and ``pyrocore`` utilities up and running in ``tmux`` in 20 minutes.
+Also @QDesjardin has created source packages for Arch Linux that can be `compiled and installed on Arch <docs/ArchInstallFromSource.rst>`_ easily.
 
 
 Binary tarballs, packages
